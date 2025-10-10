@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: blueviolet;
+}
+#nombre {
+    color: whitesmoke;
+    font-size: 2.5em;
+}
+.lista-habilidades {
+    list-style-type: square;
+    padding-left: 20px;
+}
+header {
+    text-align: center;
+    padding: 20px;
+    background: darkslateblue;
+    color: white;
+}
+header img {
+    border-radius: 50%;
+    margin-top: 10px;
+}
+nav ul {
+    display: flex;
+    justify-content: center;
+    background: hotpink;
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+}
+nav ul li {
+    margin: 0 15px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+section {
+    padding: 20px;
+    background: white;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+table, th, td {
+    border: 1px solid;
+    text-align: center;
+    padding: 8px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+form input, form textarea, form button {
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 1em;
+}
+form button {
+    background: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+form button:hover {
+    background: purple;
+}
+footer {
+    text-align: center;
+    padding: 15px;
+    background: black;
+    color: white;
+}
