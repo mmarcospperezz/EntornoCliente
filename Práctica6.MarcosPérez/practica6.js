@@ -45,7 +45,7 @@ console.log(esPrimo(10));
 console.log(esPrimo(1));
 console.log(esPrimo(-5));
 
-//Función que cuente el número de vocales de una palabra
+//Función contador número de vocales de una palabra
 function contarVocales(palabra) {
     let contador = 0;
     const vocales = 'aeiouAEIOU';
@@ -62,5 +62,68 @@ console.log(contarVocales("JavaScript"));
 console.log(contarVocales("XYZ"));
 
 //Función  ecuación de segundo grado
-function resolverEcuacionSegundoGrado(a, b, c) {
+function Ecuacion2ºGrado(a, b, c) {
+  const formula = b ** 2 - 4 * a * c;
+
+  if (formula < 0) {
+    return [];
+  } else if (formula === 0) {
+    const x = -b / (2 * a);
+    return [x];
+  } else {
+    const raiz = Math.sqrt(formula);
+    const x1 = (-b + raiz) / (2 * a);
+    const x2 = (-b - raiz) / (2 * a);
+    return [x1, x2];
+  }
 }
+//uso
+console.log(Ecuacion2ºGrado(1, -3, 2)); 
+console.log(Ecuacion2ºGrado(1, 2, 1)); 
+console.log(Ecuacion2ºGrado(1, 0, 1));
+
+//Funcion con callback
+function callBack(numero, callback) {
+  if (numero > 10) {
+    callback();
+  } else {
+    console.log("El número no es mayor que 10.");
+  }
+}
+//uso
+callBack(15, () => {
+  console.log("El número es mayor que 10.");
+});
+callBack(8, () => {
+  console.log("El número es mayor que 10.");
+});
+
+//Funcion sumar todos
+function sumarTodos(...nums) {
+  let suma = 0;
+  for (let i = 0; i < nums.length; i++) {
+    suma += nums[i];
+  }
+  return suma;
+}
+//uso
+console.log(sumarTodos(1, 2, 3, 4, 5)); 
+console.log(sumarTodos(10, -2, 3)); 
+console.log(sumarTodos());
+
+//Funcion palindromos
+function filtrarPalindromos(palabras) {
+  return palabras.filter(palabra => {
+    const normalizada = palabra.toLowerCase();
+    const invertida = normalizada.split('').reverse().join('');
+    return normalizada === invertida;
+  });
+}
+
+//uso
+const lista = ["oso", "casa", "reconocer", "hola", "radar", "nivel"];
+const palindromos = filtrarPalindromos(lista);
+console.log(palindromos);
+
+
+
