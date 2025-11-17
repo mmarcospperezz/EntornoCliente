@@ -3,9 +3,9 @@ function cuadrado(num) {
     return num * num;
 }
 //uso
-console.log(cuadrado(5)); 
-console.log(cuadrado(-3));
-console.log(cuadrado(0));
+ let number1 = Number(prompt("Introduce un número para calcular su cuadrado:"));
+ alert(cuadrado(number1));
+
 
 //Funcion calculadora factorial de un numero
 function factorial(num) {
@@ -18,18 +18,16 @@ function factorial(num) {
     return resultado;
 }
 //uso
-console.log(factorial(5)); 
-console.log(factorial(0)); 
-console.log(factorial(-2));
+let number2 = Number(prompt("Introduce un número para calcular su factorial:"));
+alert(factorial(number2));
 
 //Funcion celsius a fahrenheit
 function celsiusAFahrenheit(celsius) {
     return (celsius * 9/5) + 32;
 }
 //uso
-console.log(celsiusAFahrenheit(0)); 
-console.log(celsiusAFahrenheit(100)); 
-console.log(celsiusAFahrenheit(-40));
+let celsius = Number(prompt("Introduce una temperatura en grados Celsius para convertirla a Fahrenheit:"));
+alert(celsiusAFahrenheit(celsius));
 
 //Funcion es primo
 function esPrimo(num) {
@@ -40,10 +38,8 @@ function esPrimo(num) {
     return true;
 }
 //uso
-console.log(esPrimo(7)); 
-console.log(esPrimo(10)); 
-console.log(esPrimo(1));
-console.log(esPrimo(-5));
+let number3 = Number(prompt("Introduce un número para comprobar si es primo:"));
+alert(esPrimo(number3));
 
 //Función contador número de vocales de una palabra
 function contarVocales(palabra) {
@@ -57,9 +53,8 @@ function contarVocales(palabra) {
     return contador;
 }
 //uso
-console.log(contarVocales("Hola Mundo")); 
-console.log(contarVocales("JavaScript")); 
-console.log(contarVocales("XYZ"));
+let palabra = prompt("Introduce una palabra para contar sus vocales:");
+alert(contarVocales(palabra) + "vocales");
 
 //Función  ecuación de segundo grado
 function Ecuacion2ºGrado(a, b, c) {
@@ -78,28 +73,29 @@ function Ecuacion2ºGrado(a, b, c) {
   }
 }
 //uso
-console.log(Ecuacion2ºGrado(1, -3, 2)); 
-console.log(Ecuacion2ºGrado(1, 2, 1)); 
-console.log(Ecuacion2ºGrado(1, 0, 1));
+let a = Number(prompt("Introduce el dato a de la ecuación de segundo grado:"));
+let b = Number(prompt("Introduce el dato b de la ecuación de segundo grado:"));
+let c = Number(prompt("Introduce el dato c de la ecuación de segundo grado:"));
+alert(Ecuacion2ºGrado(a, b, c));
 
 //Funcion con callback
 function callBack(numero, callback) {
   if (numero > 10) {
     callback();
   } else {
-    console.log("El número no es mayor que 10.");
+    alert("El número no es mayor que 10.");
   }
 }
+function positiveMessage(){
+  alert("El número es mayor que 10.");
+}
 //uso
-callBack(15, () => {
-  console.log("El número es mayor que 10.");
-});
-callBack(8, () => {
-  console.log("El número es mayor que 10.");
-});
+let number4 = Number(prompt("Introduce un número para comprobar si es mayor que 10:"));
+callBack(number4, positiveMessage);
+
 
 //Funcion sumar todos
-function sumarTodos(...nums) {
+function sumarTodos(nums) {
   let suma = 0;
   for (let i = 0; i < nums.length; i++) {
     suma += nums[i];
@@ -107,9 +103,17 @@ function sumarTodos(...nums) {
   return suma;
 }
 //uso
-console.log(sumarTodos(1, 2, 3, 4, 5)); 
-console.log(sumarTodos(10, -2, 3)); 
-console.log(sumarTodos());
+let cantidad = parseInt(prompt("¿Cuántos números deseas agregar al array?"));
+let numeros = [];
+for (let i = 0; i < cantidad; i++) {
+    let num = parseFloat(prompt(`Introduce el número ${i + 1}:`));
+    numeros.push(num);
+}
+let resultado = sumarTodos(numeros);
+alert ("La suma total de todos los numeros es:" + resultado)
+
+
+
 
 //Funcion palindromos
 function filtrarPalindromos(palabras) {
@@ -123,7 +127,7 @@ function filtrarPalindromos(palabras) {
 //uso
 const lista = ["oso", "casa", "reconocer", "hola", "radar", "nivel"];
 const palindromos = filtrarPalindromos(lista);
-console.log(palindromos);
+alert(palindromos);
 
 
 
