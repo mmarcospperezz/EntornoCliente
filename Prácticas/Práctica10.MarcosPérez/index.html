@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos JS</title>
+    <style>
+        .resaltado {
+            background-color: yellow;
+            color: black;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="p1">Párrafo 1: pasa el ratón por encima</p>
+    <p id="p2">Párrafo 2: cambia y recupera color</p>
+
+    <hr>
+
+    <h1 id="contador">0</h1>
+    <button id="btnContar">Sumar</button>
+
+    <hr>
+
+    <button class="btnTexto">Botón A</button>
+    <button class="btnTexto">Botón B</button>
+    <button class="btnDoble" id="btnDoble">Botón Doble Click</button>
+
+    <hr>
+
+    <p id="parrafoClase">Párrafo con clase CSS</p>
+    <button id="btnClase">Añadir/Quitar clase</button>
+
+    <script>
+        const p1 = document.getElementById("p1");
+        p1.addEventListener("mouseover", () => {
+            p1.style.color = "red";
+        });
+
+        const p2 = document.getElementById("p2");
+        p2.addEventListener("mouseover", () => {
+            p2.style.color = "blue";
+        });
+        p2.addEventListener("mouseout", () => {
+            p2.style.color = "black";
+        });
+
+        let count = 0;
+        const h1 = document.getElementById("contador");
+        document.getElementById("btnContar").addEventListener("click", () => {
+            count++;
+            h1.textContent = count;
+        });
+
+        const botones = document.querySelectorAll(".btnTexto");
+        botones.forEach(boton => {
+            boton.addEventListener("click", () => {
+                alert(boton.textContent);
+            });
+        });
+
+        const btnDoble = document.getElementById("btnDoble");
+        btnDoble.addEventListener("click", () => {
+            alert("Has hecho doble clic 🚀");
+        });
+
+        const parrafoClase = document.getElementById("parrafoClase");
+        document.getElementById("btnClase").addEventListener("click", () => {
+            parrafoClase.classList.toggle("resaltado");
+        });
+    </script>
+
+
+</body>
+</html>

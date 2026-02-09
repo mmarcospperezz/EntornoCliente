@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<body>
+    <input id="nombre" placeholder="Nombre">
+    <select id="tema">
+        <option value="claro">Claro</option>
+        <option value="oscuro">Oscuro</option>
+    </select>
+    <button onclick="guardar()">Guardar</button>
+    <script>
+        function guardar() {
+            document.cookie = "nombre=" +
+                nombre.value + ";max-age=604800";
+            document.cookie = "tema=" + tema.value
+                + ";max-age=604800";
+            cargar();
+        }
+        function cargar() {
+            document.cookie.split("; ").forEach(c => {
+                let [k, v] = c.split("=");
+                if (k == "nombre") nombre.value =
+                    v;
+                if (k == "tema")
+                    document.body.className = v;
+            });
+        }
+        cargar();
+    </script>
+    <style>
+        body.oscuro {
+            background: black;
+            color: white;
+        }
+
+        body.claro {
+            background: white;
+            color: black;
+        }
+    </style>

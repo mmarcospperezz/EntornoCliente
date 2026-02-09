@@ -5,8 +5,8 @@ let persona = {
     ciudad: "Madrid"
 };
 
-console.log(persona.nombre); // con .
-console.log(persona["edad"]); // con []
+console.log(persona.nombre); 
+console.log(persona["edad"]); 
 persona.edad = 31;
 persona.profesion = "Ingeniero";
 

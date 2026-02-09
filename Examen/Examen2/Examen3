@@ -1,0 +1,25 @@
+Instrucciones: El ejercicio requiere la entrega de un html llamado MarcosPérez.hmtl y un archivo.js para el ejercicio
+
+1.- Crea una aplicacion web que gestione una lista de tareas.
+-Debe existir un input donde el usuario escriba el nombre de la tarea, un boton "Añadir" y una lista <ul>. Crealos en el html directamente.
+
+- Al pulsar el boton, la tarea se añade como un <li> dentro de un <ul>
+
+- Cada tarea debe tener un boton "Eliminar" que permita borrarla.
+
+- Cada tarea debe poder marcarse como completada haciendo clic sobre el texto (cambiando el color de fondo, poniendola en negrita, o añadiendo un tick)
+
+- Evitar que se añadan tareas vacias(mostrar alert si se intenta)
+
+Pistas:
+- Recordamos que para acceder al valor de un input se utiliza value en vez de texContent.
+
+-Para poder asociar el nodo que creamos en su listener se puede utilizar el target del objeto evento, para que el disparador solo afecte al nodo concreto en que se dispara y no a todos los elementos iguales.
+
+
+2.- Crea un boton (Activar/Desactivar) que cambie de texto al clicar y controle el funcionamiento de un parrafo.
+Cuando se pulse Activar, el parrafo reaccionara a los clicks que se hagan sobre el mismo y cuando se ponga el raton encima, modificando su estilo en mabos casos.
+Cuando se haga click en Desactivar esto dejara de funcionar y el parrafo no escuchara ningun evento.
+Bonus: Si almacena el estado del boton en LocalStorage o en Cookies.
+
+
