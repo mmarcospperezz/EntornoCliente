@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicios DOM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        img {
+            width: 120px;
+            display: block;
+            margin-top: 10px;
+        }
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ejercicios JavaScript</h1>
+
+    <!-- 1. Añadir párrafo -->
+    <section>
+        <h2>1. Añadir párrafo</h2>
+        <button id="btnParrafo">Añadir párrafo</button>
+    </section>
+
+    <!-- 2. Crear botones dinámicos -->
+    <section>
+        <h2>2. Crear botones dinámicos</h2>
+        <button id="btnCrearBotones">Crear botones</button>
+        <div id="contenedorBotones"></div>
+    </section>
+
+    <!-- 3. Interruptor bombilla -->
+    <section>
+        <h2>3. Interruptor bombilla</h2>
+        <button id="btnBombilla">Encender / Apagar</button>
+        <img id="bombilla" src="apagada.png" alt="Bombilla">
+    </section>
+
+    <!-- 4. Cambiar color de fondo -->
+    <section>
+        <h2>4. Cambiar color de fondo</h2>
+        <input type="text" id="colorInput" placeholder="Ej: red, #ff0000">
+        <button id="btnColor">Enviar</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

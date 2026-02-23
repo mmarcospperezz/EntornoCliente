@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Botón con evento</title>
+</head>
+
+<body>
+
+    <button id="btnAccion">Haz clic</button>
+
+    <script>
+        // Seleccionamos el botón
+        const boton = document.querySelector("#btnAccion");
+
+        // Creamos el evento
+        boton.addEventListener("click", () => {
+            alert("Botón pulsado correctamente");
+        });
+
+        boton.addEventListener("click", (objEvento) => {
+            console.log(objEvento);
+        });
+    </script>
+
+</body>
+
+</html>

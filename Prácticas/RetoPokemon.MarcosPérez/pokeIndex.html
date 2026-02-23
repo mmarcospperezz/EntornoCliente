@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>POKEDEX</title>
+    <link rel="stylesheet" href="pokeStyle.css">
+</head>
+<body>
+
+    <div class="pokedex-case">
+        <h1>POKÉDEX</h1>
+        
+        <div id="pantalla">
+            <div id="resultado">
+                <p>Selecciona un Pokémon</p>
+            </div>
+        </div>
+
+        <div class="controles">
+            <select id="pokeSelect">
+                <option value="">Cargando lista...</option>
+            </select>
+            
+            <div class="buscador">
+                <input type="text" id="pokeInput" placeholder="Nombre o ID...">
+                <button id="btnBuscar">BUSCAR</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="pokeJavaScript.js"></script>
+</body>
+</html>

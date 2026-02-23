@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Biblioteca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="navbar" class="hidden">
+        <span id="welcome-msg"></span>
+        <button onclick="showSection('section-catalogo')">Catálogo</button>
+        <button onclick="showSection('section-mis-prestamos')">Mis Préstamos</button>
+        <button id="btn-admin" class="hidden" onclick="showSection('section-admin')">Panel Admin</button>
+        <button onclick="logout()">Cerrar Sesión</button>
+    </nav>
+
+    <section id="section-login">
+        <h2>Iniciar Sesión</h2>
+        <input type="text" id="login-user" placeholder="Usuario (admin o user1)">
+        <input type="password" id="login-pass" placeholder="Contraseña">
+        <button onclick="login()">Entrar</button>
+    </section>
+
+    <section id="section-catalogo" class="hidden">
+        <h2>Catálogo de Libros</h2>
+        <div id="lista-libros"></div>
+    </section>
+
+    <section id="pantalla-detalle" class="hidden">
+        <h2>Detalle del Libro</h2>
+        <div id="contenido-detalle"></div>
+    </section>
+
+    <section id="section-mis-prestamos" class="hidden">
+        <h2>Mis Préstamos y Penalizaciones</h2>
+        <div id="info-penalizacion"></div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Libro</th>
+                    <th>Fecha Devolución</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-mis-prestamos"></tbody>
+        </table>
+    </section>
+
+    <section id="section-admin" class="hidden">
+        <h2>Panel de Control Total</h2>
+        <div class="card">
+            <h3>Ajustes del Sistema</h3>
+            <label>Máximo libros: <input type="number" id="conf-max" onchange="actualizarConfig()"></label>
+            <label>Días préstamo: <input type="number" id="conf-dias" onchange="actualizarConfig()"></label>
+        </div>
+        <div class="admin-grid">
+            <div class="card">
+                <h3>Gestión de Libros</h3>
+                <input type="text" id="add-titulo" placeholder="Título del libro">
+                <input type="text" id="add-autor" placeholder="Autor del libro">
+                <input type="text" id="add-portada" placeholder="URL de la imagen (JPG/PNG)">
+                <button onclick="agregarLibro()">Añadir Libro</button>
+                <ul id="admin-lista-libros"></ul>
+            </div>
+            <div class="card">
+                <h3>Usuarios y Penalizaciones</h3>
+                <div id="admin-lista-usuarios"></div>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Estadísticas Avanzadas</h3>
+            <div id="stats-container">
+                <p>Cargando datos estadísticos...</p>
+            </div>
+            <button onclick="renderAdmin()" style="margin-top: 10px;">Actualizar Stats</button>
+        </div>
+    </section>
+
+    <script src="./app.js"></script>
+    <script src="./authentication.js"></script>
+</body>
+</html>

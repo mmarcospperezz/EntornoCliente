@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba Promesas y Async/Await</title>
+</head>
+<body>
+
+    <h2>Ejercicio 1</h2>
+    <button onclick="runTarea()">Ejecutar hacerTarea()</button>
+
+    <h2>Ejercicio 2</h2>
+    <button onclick="runDoblar()">Ejecutar doblar(5) dos veces</button>
+
+    <h3>Resultado:</h3>
+    <p id="resultado"></p>
+
+    <script>
+
+        function hacerTarea() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve("Tarea completada");
+                }, 1000);
+            });
+        }
+
+        async function runTarea() {
+            const mensaje = await hacerTarea();
+            document.getElementById("resultado").textContent = mensaje;
+            console.log(mensaje);
+        }
+
+
+        function doblar(numero) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (numero > 0) {
+                        resolve(numero * 2);
+                    } else {
+                        reject("Utiliza solo números positivos");
+                    }
+                }, 1000);
+            });
+        }
+
+        async function runDoblar() {
+            try {
+                let resultado = await doblar(5);
+                resultado = await doblar(resultado);
+                const mensajeFinal = "Resultado: " + resultado;
+
+                document.getElementById("resultado").textContent = mensajeFinal;
+                console.log(mensajeFinal);
+
+            } catch (error) {
+                document.getElementById("resultado").textContent = error;
+                console.error(error);
+            }
+        }
+    </script>
+
+</body>
+</html>

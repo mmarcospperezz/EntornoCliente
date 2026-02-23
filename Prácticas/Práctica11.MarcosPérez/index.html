@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos 2</title>
+</head>
+
+<body>
+    // Ejercicio 1
+    <div id="abuelo" style="padding: 50px; background-color: lightblue;">
+        Abuelo
+        <div id="padre" style="padding: 40px; background-color: lightgreen;">
+            Padre
+            <div id="hijo" style="padding: 30px; background-color: lightcoral;">
+                Hijo
+            </div>
+        </div>
+    </div>
+    <script>
+        const abuelo = document.getElementById('abuelo');
+        const padre = document.getElementById('padre');
+        const hijo = document.getElementById('hijo');
+
+        abuelo.addEventListener('click', () => {
+            alert('Click en ABUELO');
+        });
+
+        padre.addEventListener('click', () => {
+            alert('Click en PADRE');
+        });
+
+        hijo.addEventListener('click', () => {
+            alert('Click en HIJO');
+        });
+    </script>
+    <hr>
+    // Ejercicio 2
+    <div id="abuelo2" style="padding: 50px; background-color: lightblue;">
+        Abuelo
+        <div id="padre2" style="padding: 40px; background-color: lightgreen;">
+            Padre
+            <div id="hijo2" style="padding: 30px; background-color: lightcoral;">
+                Hijo
+            </div>
+        </div>
+    </div>
+    <script>
+        const abuelo2 = document.getElementById('abuelo2');
+        const padre2 = document.getElementById('padre2');
+        const hijo2 = document.getElementById('hijo2');
+
+        abuelo2.addEventListener('click', (e) => {
+            e.stopPropagation();
+            alert('Click en ABUELO');
+        });
+
+        padre2.addEventListener('click', (e) => {
+            e.stopPropagation();
+            alert('Click en PADRE');
+        });
+
+        hijo2.addEventListener('click', (e) => {
+            e.stopPropagation();
+            alert('Click en HIJO');
+        });
+    </script>
+    <hr>
+    //Ejercicio 3
+    <a href="https://www.google.com" id="enlace">
+        Ir a Google
+    </a>
+    <p id="mensaje"></p>
+    <script>
+        const enlace = document.getElementById('enlace');
+        const mensaje1 = document.getElementById('mensaje');
+
+        let cancelado = false;
+
+        enlace.addEventListener('click', (e) => {
+            if (!cancelado) {
+                e.preventDefault();
+                mensaje1.textContent = 'Redirección cancelada. El enlace ya no funciona.';
+                enlace.style.color = 'gray';
+                enlace.style.cursor = 'default';
+                enlace.textContent = 'Enlace desactivado';
+                cancelado = true;
+            }
+        });
+
+    </script>
+    <hr>
+    //Ejercicio 4
+    <h1 id="contador">0</h1>
+    <button id="btnContar">Sumar</button>
+    <p id="mensaje"></p>
+    <script>
+        let count = 0;
+
+        const h1 = document.getElementById("contador");
+        const boton = document.getElementById("btnContar");
+
+        document.addEventListener("llegaADiez", () => {
+            alert("¡Has llegado a 10!");
+            h1.style.color = "red";
+        });
+
+        boton.addEventListener("click", () => {
+            count++;
+            h1.textContent = count;
+
+            if (count === 10) {
+                const evento = new Event("llegaADiez");
+                document.dispatchEvent(evento);
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

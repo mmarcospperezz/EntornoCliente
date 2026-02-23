@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba Promesas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        button {
+            margin: 5px 0;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        #resultado {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Esperar X segundos</h2>
+    <button onclick="probarEsperar()">Esperar 3 segundos</button>
+
+    <h2>Doblar número</h2>
+    <button onclick="probarDoblar()">Doblar 8</button>
+
+    <h2>Dividir entre dos</h2>
+    <button onclick="probarDividir()">Dividir 16 entre 2</button>
+    <button onclick="probarDividirCero()">Dividir 0 entre 2 (Error)</button>
+
+    <h3>Resultado:</h3>
+    <p id="resultado"></p>
+
+    <script>
+        function esperarSegundos(segundos) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(`Han pasado ${segundos} segundos`);
+                }, segundos * 1000);
+            });
+        }
+
+        function doblarNumero(numero) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(numero * 2);
+                }, 1000);
+            });
+        }
+
+        function dividirEntreDos(numero) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (numero === 0) {
+                        reject("No se puede dividir");
+                    } else {
+                        resolve(numero / 2);
+                    }
+                }, 1000);
+            });
+        }
+
+
+        async function probarEsperar() {
+            document.getElementById("resultado").textContent = "Esperando...";
+            const mensaje = await esperarSegundos(3);
+            document.getElementById("resultado").textContent = mensaje;
+        }
+
+        async function probarDoblar() {
+            document.getElementById("resultado").textContent = "Procesando...";
+            const resultado = await doblarNumero(8);
+            document.getElementById("resultado").textContent = "Resultado: " + resultado;
+        }
+
+        async function probarDividir() {
+            try {
+                document.getElementById("resultado").textContent = "Procesando...";
+                const resultado = await dividirEntreDos(16);
+                document.getElementById("resultado").textContent = "Resultado: " + resultado;
+            } catch (error) {
+                document.getElementById("resultado").textContent = error;
+            }
+        }
+
+        async function probarDividirCero() {
+            try {
+                document.getElementById("resultado").textContent = "Procesando...";
+                const resultado = await dividirEntreDos(0);
+                document.getElementById("resultado").textContent = "Resultado: " + resultado;
+            } catch (error) {
+                document.getElementById("resultado").textContent = error;
+            }
+        }
+    </script>
