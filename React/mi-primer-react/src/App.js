@@ -1,25 +1,15 @@
-import logo from './logo.svg';
+import { useState } from "react";
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const titulo = <h1>Mi titulo</h1>
+  const calculo = <h2>{sumar(5, 10)}</h2>
+  return <div>{titulo}{calculo}</div>
 }
+
+function sumar(a, b) {
+    const resultado = a + b
+    return <p>{resultado}</p>
+  }
 
 export default App;
